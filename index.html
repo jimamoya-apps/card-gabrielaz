@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Gabriela Zumárraga</title>
+  <meta name="description" content="Gabriela Zumárraga · Brand Ambassador · ByDzyne Ecuador"/>
+  <meta name="theme-color" content="#F4EFE5"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#F4EFE5;
+      --card:#FFFFFF;
+      --border:#E5D9BE;
+      --border2:#C4A870;
+      --text:#26200E;
+      --muted:#8A7A5A;
+      --soft:#B0A07A;
+      --gold:#9A7020;
+      --gold2:#BF9028;
+      --coral:#963818;
+      --serif:"Cormorant Garamond",Georgia,serif;
+      --sans:"DM Sans",system-ui,sans-serif;
+      --ease:cubic-bezier(.16,1,.3,1);
+      /* Dynamic spacing — scales with screen height */
+      --gap:clamp(6px,1.4vh,14px);
+      --pad:clamp(14px,3.5vw,28px);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+
+    html,body{
+      width:100%;height:100%;
+      overflow:hidden;
+    }
+
+    body{
+      font-family:var(--sans);color:var(--text);
+      background:
+        radial-gradient(ellipse 120% 50% at 5% 0%,rgba(200,170,90,.22),transparent 60%),
+        radial-gradient(ellipse 80% 40% at 95% 100%,rgba(180,150,75,.16),transparent 55%),
+        var(--bg);
+      /* Full viewport, safe areas */
+      min-height:100svh;
+      display:flex;align-items:stretch;justify-content:center;
+      padding:
+        max(10px, env(safe-area-inset-top))
+        max(12px, env(safe-area-inset-right))
+        max(10px, env(safe-area-inset-bottom))
+        max(12px, env(safe-area-inset-left));
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* Card fills full height, capped at comfortable width */
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:clamp(14px,3vw,22px);
+      width:min(480px,100%);
+      /* Fill all available vertical space */
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      padding:var(--pad);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.9) inset,
+        0 2px 8px rgba(150,115,35,.07),
+        0 8px 28px rgba(100,75,20,.10);
+      position:relative;overflow:hidden;
+      opacity:0;transform:translateY(8px);
+      animation:rise .45s var(--ease) forwards;
+    }
+    @keyframes rise{to{opacity:1;transform:translateY(0)}}
+    .card::before{
+      content:"";position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,transparent,rgba(210,175,95,.80) 43%,rgba(195,150,38,.95) 50%,rgba(210,175,95,.80) 57%,transparent);
+    }
+
+    /* ── HEADER ── */
+    .header{
+      display:flex;gap:clamp(10px,2.5vw,16px);
+      align-items:center;
+      margin-bottom:var(--gap);
+      flex-shrink:0;
+    }
+    .photo-wrap{
+      /* Photo scales with screen */
+      flex:0 0 clamp(52px,13vw,72px);
+      width:clamp(52px,13vw,72px);
+      height:clamp(52px,13vw,72px);
+      border-radius:50%;
+      border:2px solid var(--border2);
+      box-shadow:0 0 0 3px rgba(150,112,30,.09);
+      overflow:hidden;
+    }
+    .photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+    .hinfo{flex:1;min-width:0}
+    .name{
+      font-family:var(--serif);
+      font-size:clamp(20px,5.5vw,32px);
+      font-weight:700;line-height:1.05;color:var(--text);
+    }
+    .role{font-size:clamp(10px,2.6vw,12.5px);color:var(--muted);margin-top:3px}
+    .role b{color:#574828;font-weight:500}
+    .tagline{
+      display:flex;align-items:center;gap:5px;margin-top:5px;
+      font-size:clamp(7.5px,2vw,9px);font-weight:500;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--gold);
+    }
+    .dot{width:4px;height:4px;border-radius:50%;background:var(--gold2)}
+
+    /* ── DIVIDER ── */
+    .div{
+      height:1px;
+      margin-bottom:var(--gap);
+      background:linear-gradient(90deg,transparent,var(--border2),var(--border),transparent);
+      flex-shrink:0;
+    }
+
+    /* ── PILLS ── */
+    .pills{
+      display:flex;gap:4px;flex-wrap:nowrap;
+      margin-bottom:var(--gap);flex-shrink:0;overflow:hidden;
+    }
+    .pill{
+      font-size:clamp(8.5px,2.2vw,10.5px);font-weight:500;
+      padding:3px 9px;border-radius:99px;
+      border:1px solid var(--border2);background:#FDFAF3;color:var(--gold);
+      white-space:nowrap;
+    }
+    .pill-c{border-color:rgba(150,56,24,.22);background:rgba(150,56,24,.04);color:var(--coral)}
+
+    /* ── VALUE ── grows to fill space */
+    .value{
+      font-size:clamp(11.5px,3vw,14px);
+      color:#3E3218;line-height:1.55;
+      margin-bottom:var(--gap);
+      flex:1; /* fills remaining space */
+      display:flex;align-items:center;
+    }
+    .value em{color:var(--text);font-style:normal;font-weight:500}
+
+    /* ── RANK ── */
+    .rank{
+      display:inline-flex;align-items:center;gap:5px;
+      padding:4px 11px;border-radius:99px;
+      border:1px solid var(--border2);
+      background:linear-gradient(135deg,rgba(200,168,90,.12),rgba(191,144,40,.05));
+      font-size:clamp(9px,2.3vw,10.5px);font-weight:500;color:var(--gold);
+      margin-bottom:var(--gap);flex-shrink:0;
+      align-self:flex-start;
+    }
+
+    /* ── BUTTONS ── */
+    .actions{display:flex;flex-direction:column;gap:var(--gap);flex-shrink:0}
+
+    .btn{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      width:100%;
+      /* Height scales with screen */
+      padding:clamp(8px,1.8vh,13px) clamp(11px,3vw,15px);
+      min-height:clamp(40px,6vh,52px);
+      border-radius:clamp(9px,2vw,13px);
+      border:1px solid var(--border);
+      background:#FDFAF3;color:var(--text);text-decoration:none;
+      font-family:var(--sans);font-size:1rem;cursor:pointer;
+      transition:transform .12s var(--ease),border-color .12s,background .12s;
+      flex-shrink:0;
+    }
+    .btn:active{transform:scale(.97);background:#F5EED8;border-color:var(--border2)}
+    @media(hover:hover){
+      .btn:hover{border-color:var(--border2);background:#FFFEF9;box-shadow:0 4px 14px rgba(100,75,20,.10)}
+    }
+    .btn-wa{border-color:rgba(30,165,80,.30);background:linear-gradient(135deg,rgba(37,211,102,.08),rgba(20,155,65,.03))}
+    .btn-shop{border-color:var(--border2);background:linear-gradient(135deg,rgba(200,168,90,.10),rgba(191,144,40,.04))}
+    .btn-vcard{
+      border-color:rgba(150,112,30,.16);background:rgba(150,112,30,.04);
+      min-height:clamp(34px,4.5vh,42px);
+      padding:clamp(6px,1.2vh,10px) clamp(11px,3vw,15px);
+    }
+
+    .g2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+
+    .bl{display:flex;align-items:center;gap:clamp(8px,2vw,11px);min-width:0;flex:1}
+    .ic{
+      flex:0 0 clamp(28px,7vw,34px);
+      width:clamp(28px,7vw,34px);height:clamp(28px,7vw,34px);
+      border-radius:clamp(7px,1.8vw,9px);
+      display:grid;place-items:center;
+      background:rgba(150,112,30,.08);border:1px solid rgba(150,112,30,.15);
+    }
+    .lbl{display:flex;flex-direction:column;gap:1px;min-width:0;flex:1}
+    .lbl strong{font-size:clamp(11.5px,3vw,13.5px);color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .lbl small{font-size:clamp(9.5px,2.4vw,11px);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .arr{flex:0 0 auto;color:var(--soft);font-size:clamp(11px,2.8vw,13px)}
+
+    /* Foot */
+    .foot{
+      margin-top:var(--gap);text-align:right;
+      font-size:clamp(8.5px,2.2vw,10px);color:var(--soft);flex-shrink:0;
+    }
+    .foot a{color:var(--gold);text-decoration:none}
+
+    /* Stagger */
+    .btn{opacity:0;transform:translateY(4px)}
+    .btn.in{opacity:1;transform:translateY(0);
+      transition:opacity .28s ease,transform .28s ease,border-color .12s,background .12s}
+
+    @media(prefers-reduced-motion:reduce){
+      *{animation:none!important}.card{opacity:1;transform:none}
+      .btn{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+<main style="display:flex;width:100%;align-items:stretch;justify-content:center">
+  <section class="card" aria-label="Tarjeta digital de Gabriela Zumárraga">
+
+    <div class="header">
+      <div class="photo-wrap">
+        <img src="data:image/jpeg;base64,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" alt="Gabriela Zumárraga" loading="eager" width="180" height="180"/>
+      </div>
+      <div class="hinfo">
+        <h1 class="name">Gabriela Zumárraga</h1>
+        <div class="role"><b>Brand Ambassador</b> · ByDzyne Ecuador</div>
+        <div class="tagline"><span class="dot"></span> Conecta · Optimiza · Trasciende</div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="pills" role="list">
+      <span class="pill">✦ Cuántica</span>
+      <span class="pill">✦ Biohacking</span>
+      <span class="pill">✦ Viajes</span>
+      <span class="pill">✦ Automotriz</span>
+      <span class="pill pill-c">♦ Mentoría</span>
+    </div>
+
+    <p class="value">
+      <span><em>Creadora de equipos de alto impacto.</em> Mentora de nuevos modelos de pensamiento que convierten atención en libertad real.</span>
+    </p>
+
+    <span class="rank">★★ Presidenta 2 Estrellas · ByDzyne International</span>
+
+    <div class="actions">
+
+      <a class="btn btn-wa" href="https://wa.me/593984194171?text=Hola%20Gabriela%20%F0%9F%91%8B%0A%0AVi%20tu%20perfil%20y%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20ecosistema%20ByDzyne.%0A%0AMe%20llamo%20%5Btu%20nombre%5D%20y%20quiero%20entender%20c%C3%B3mo%20funciona%20%E2%80%94%20ya%20sea%20desde%20los%20productos%2C%20el%20negocio%20o%20la%20mentor%C3%ADa.%0A%0A%C2%BFTienes%20unos%20minutos%20esta%20semana%3F" target="_blank" rel="noopener">
+        <span class="bl">
+          <span class="ic" style="background:rgba(30,165,80,.09);border-color:rgba(30,165,80,.24)">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="#1A9850"><path d="M20.52 3.48A11.92 11.92 0 0012.05 0C5.5 0 .2 5.3.2 11.86c0 2.09.55 4.13 1.6 5.92L0 24l6.38-1.67a11.87 11.87 0 005.67 1.44h.01c6.55 0 11.85-5.3 11.85-11.86 0-3.17-1.23-6.14-3.39-8.43zM12.06 21.2a9.31 9.31 0 01-4.74-1.3l-.34-.2-3.79.99 1.01-3.7-.22-.38a9.3 9.3 0 01-1.43-4.96c0-5.16 4.2-9.36 9.37-9.36 2.5 0 4.85.97 6.62 2.73a9.3 9.3 0 012.75 6.63c0 5.16-4.2 9.36-9.36 9.36zm5.14-6.99c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.19.28-.72.9-.88 1.09-.16.19-.32.21-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.19-.28.28-.46.09-.19.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.53-.44-.46-.62-.47h-.53c-.19 0-.49.07-.74.35-.25.28-.97.95-.97 2.32 0 1.37 1 2.69 1.14 2.88.14.19 1.97 3.02 4.77 4.23.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.53-.32z"/></svg>
+          </span>
+          <span class="lbl">
+            <strong>WhatsApp — Escribir ahora</strong>
+            <small>+593 984 194 171</small>
+          </span>
+        </span>
+        <span class="arr">➜</span>
+      </a>
+
+      <a class="btn btn-shop" href="https://www.bydzyne.com/shop/garsumy" target="_blank" rel="noopener">
+        <span class="bl">
+          <span class="ic">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#9A7020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/></svg>
+          </span>
+          <span class="lbl">
+            <strong>Tienda ByDzyne</strong>
+            <small>Quantumé · Biohacking · Viajes</small>
+          </span>
+        </span>
+        <span class="arr">➜</span>
+      </a>
+
+      <div class="g2">
+        <a class="btn" href="https://www.instagram.com/gabizumarraga" target="_blank" rel="noopener">
+          <span class="bl">
+            <span class="ic" style="background:rgba(190,45,100,.07);border-color:rgba(190,45,100,.16)">
+              <svg viewBox="0 0 24 24" width="16" height="16"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#D06018"/><stop offset="50%" stop-color="#B81858"/><stop offset="100%" stop-color="#581898"/></linearGradient></defs><path fill="url(#ig)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </span>
+            <span class="lbl">
+              <strong>Instagram</strong>
+              <small>@gabizumarraga</small>
+            </span>
+          </span>
+          <span class="arr">➜</span>
+        </a>
+
+        <a class="btn" href="https://www.tiktok.com/@gabizumarraga" target="_blank" rel="noopener">
+          <span class="bl">
+            <span class="ic" style="background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.09)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#26200E"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.73a4.85 4.85 0 01-1.01-.04z"/></svg>
+            </span>
+            <span class="lbl">
+              <strong>TikTok</strong>
+              <small>@gabizumarraga</small>
+            </span>
+          </span>
+          <span class="arr">➜</span>
+        </a>
+      </div>
+
+      <button class="btn btn-vcard" onclick="dlVCard()">
+        <span class="bl">
+          <span class="ic" style="width:28px;height:28px;border-radius:7px">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#9A7020" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <span class="lbl">
+            <strong style="font-size:11.5px;color:var(--muted)">Guardar contacto</strong>
+          </span>
+        </span>
+        <span class="arr" style="font-size:11px;color:rgba(150,112,30,.40)">↓</span>
+      </button>
+
+    </div>
+
+    <div class="foot">
+      Creado con <a href="https://menteiacreativa.com" target="_blank" rel="noopener">MenteIACreativa</a>
+    </div>
+
+  </section>
+</main>
+<script>
+function dlVCard(){
+  var v=["BEGIN:VCARD","VERSION:3.0","FN:Gabriela Zumárraga","N:Zumárraga;Gabriela;;;","TITLE:Brand Ambassador","ORG:ByDzyne Ecuador","TEL;TYPE=CELL:+593984194171","URL:https://www.bydzyne.com/shop/garsumy","X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/gabizumarraga","X-SOCIALPROFILE;TYPE=tiktok:https://www.tiktok.com/@gabizumarraga","NOTE:Brand Ambassador ByDzyne Ecuador · Presidenta 2 Estrellas","PHOTO;ENCODING=b;TYPE=JPEG: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","END:VCARD"].join("\r\n");
+  var b=new Blob([v],{type:"text/vcard;charset=utf-8"});
+  var u=URL.createObjectURL(b);
+  var a=document.createElement("a");
+  a.href=u;a.download="Gabriela-Zumarraga.vcf";
+  document.body.appendChild(a);a.click();
+  document.body.removeChild(a);URL.revokeObjectURL(u);
+}
+document.querySelectorAll('.btn').forEach(function(b,i){
+  setTimeout(function(){b.classList.add('in');},380+i*50);
+});
+</script>
+</body>
+</html>
